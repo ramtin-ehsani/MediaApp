@@ -18,8 +18,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:padding="15dp"
-        android:weightSum="3"
+        android:padding="10dp"
         tools:ignore="ExtraText">
 
         <TextView
@@ -27,8 +26,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textColor="@color/white"
-            android:layout_weight="2"
-            android:textSize="25sp"
+            android:textSize="20sp"
             />
 
     </LinearLayout>

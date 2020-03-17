@@ -1,34 +1,25 @@
 package com.myapp.mediaproject;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.DefaultItemAnimator;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
 
-import android.content.Intent;
-import android.net.Uri;
+import android.content.Context;
+import android.graphics.Rect;
 import android.os.Bundle;
-import android.util.DisplayMetrics;
-import android.util.Log;
+import android.view.MotionEvent;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.MediaController;
-import android.widget.RelativeLayout;
-import android.widget.VideoView;
+import android.view.inputmethod.InputMethodManager;
+import android.widget.EditText;
 
 
 import com.google.android.material.tabs.TabLayout;
 import com.myapp.mediaproject.adapters.FragAdapter;
 
-import java.net.URL;
-import java.util.ArrayList;
-import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     ViewPager viewPager;
     TabLayout tabLayout;
+    EditText search;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,11 +28,30 @@ public class MainActivity extends AppCompatActivity {
 
         init();
         handle();
+
+    }
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent event) {
+        if (event.getAction() == MotionEvent.ACTION_DOWN) {
+            View v = getCurrentFocus();
+            if ( v instanceof EditText) {
+                Rect outRect = new Rect();
+                v.getGlobalVisibleRect(outRect);
+                if (!outRect.contains((int)event.getRawX(), (int)event.getRawY())) {
+                    v.clearFocus();
+                    InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.hideSoftInputFromWindow(v.getWindowToken(), 0);
+                }
+            }
+        }
+        return super.dispatchTouchEvent( event );
     }
 
     void init(){
         viewPager = findViewById(R.id.viewPage);
         tabLayout = findViewById(R.id.tabLay);
+        search = findViewById(R.id.edt_search);
     }
 
     void handle(){
@@ -49,5 +59,6 @@ public class MainActivity extends AppCompatActivity {
         viewPager.setAdapter(fragAdapter);
         tabLayout.setupWithViewPager(viewPager);
     }
+
 
 }
