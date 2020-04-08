@@ -60,7 +60,8 @@ public class HomeFragment extends Fragment {
                 "Christopher Nolan", "Leonardo DiCaprio\nJoseph Gordon-Levitt\nEllen Page",
                 "8.8/10", "8.7/10",  imageView, "Action\nAdventure\nSci-fi", "https://www.imdb.com/title/tt1375666/",
                 "http://dl2.ftk.pw/film/Inception.2010.720p.BluRay.scOrp.Film2Movie_BiZ.mkv",
-                "http://dl2.ftk.pw/film/Inception.2010.1080p.BluRay.scOrp.Film2Movie_BiZ.mkv"));
+                "http://dl2.ftk.pw/film/Inception.2010.1080p.BluRay.scOrp.Film2Movie_BiZ.mkv",
+                "https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_UX182_CR0,0,182,268_AL_.jpg"));
 
         ImageView imageView2 = new ImageView(getContext());
         imageView2.setImageResource(R.drawable.bohemianrhapsody);
@@ -69,28 +70,32 @@ public class HomeFragment extends Fragment {
                 "Bryan Singer", "Rami Malek\nLucy Boynton\nGwilym Lee",
                 "8/10", "7.9/10",  imageView2, "Biography\nDrama\nMusic", "https://www.imdb.com/title/tt1727824/?ref_=nv_sr_srsg_0",
                 "http://dl8.disdn.com/Movie/Foreign/1397/11/Bohemian.Rhapsody.2018.720p.MkvCage.mkv?20190304195535",
-                "http://dl8.disdn.com/Movie/Foreign/1397/11/Bohemian.Rhapsody.2018.1080p.6CH.MkvCage.mkv?20190304195508"));
+                "http://dl8.disdn.com/Movie/Foreign/1397/11/Bohemian.Rhapsody.2018.1080p.6CH.MkvCage.mkv?20190304195508",
+                "https://m.media-amazon.com/images/M/MV5BMTA2NDc3Njg5NDVeQTJeQWpwZ15BbWU4MDc1NDcxNTUz._V1_SY1000_CR0,0,674,1000_AL_.jpg"));
 
         ImageView imageView3 = new ImageView(getContext());
         imageView3.setImageResource(R.drawable.el_camino);
         imageView3.setTag(R.drawable.el_camino);
-        movies.add(new MoviesClass("El Camino: A Breaking Bad Movie", "(2019)", "Aaron Paul, best known for his role as drug dealer Jesse Pinkman in \"Breaking Bad,\" reprises his role in the follow-up film El Camino: A Breaking Bad Movie. Who else has he played?",
+        movies.add(new MoviesClass("El Camino: A Breaking Bad Movie", "(2019)", "Aaron Paul, best known for his role as drug dealer Jesse Pinkman in \"Breaking Bad,\" reprises his role in the follow-up film El Camino: A Breaking Bad MovieFirebase. Who else has he played?",
                 "Vince Gilligan", "Aaron Paul\nJonathan Banks\nMatt Jones",
                 "7.4/10", "9.1/10",  imageView3, "Action\nCrime\nDrama", "https://www.imdb.com/title/tt9243946/?ref_=nv_sr_srsg_0",
                 "http://dl2.uploadmax.ir/Film/New-Server/2019/El.Camino.A.Breaking.Bad.Movie.2019.720p.WEB-DL.PAHE.Film2Media.mkv",
-                "http://dl2.uploadmax.ir/Film/New-Server/2019/El.Camino.A.Breaking.Bad.Movie.2019.1080p.WEB-DL.x264.6CH-Pahe.Film2Media.mkv"));
+                "http://dl2.uploadmax.ir/Film/New-Server/2019/El.Camino.A.Breaking.Bad.Movie.2019.1080p.WEB-DL.x264.6CH-Pahe.Film2Media.mkv",
+                "https://m.media-amazon.com/images/M/MV5BNjk4MzVlM2UtZGM0ZC00M2M1LThkMWEtZjUyN2U2ZTc0NmM5XkEyXkFqcGdeQXVyOTAzMTc2MjA@._V1_SY1000_SX800_AL_.jpg"));
 
         movies.add(new MoviesClass("Inception", "(2010)", "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.",
                 "Christopher Nolan", "Leonardo DiCaprio\nJoseph Gordon-Levitt\nEllen Page",
                 "8.8/10", "8.7/10",  imageView, "Action\\nAdventure\\nSci-fi", "https://www.imdb.com/title/tt1375666/",
                 "http://dl2.ftk.pw/film/Inception.2010.720p.BluRay.scOrp.Film2Movie_BiZ.mkv",
-                "http://dl2.ftk.pw/film/Inception.2010.1080p.BluRay.scOrp.Film2Movie_BiZ.mkv"));
+                "http://dl2.ftk.pw/film/Inception.2010.1080p.BluRay.scOrp.Film2Movie_BiZ.mkv",
+                "https://m.media-amazon.com/images/M/MV5BMjAxMzY3NjcxNF5BMl5BanBnXkFtZTcwNTI5OTM0Mw@@._V1_UX182_CR0,0,182,268_AL_.jpg"));
 
         movies.add(new MoviesClass("Bohemian Rhapsody", "(2018)", "The story of the legendary British rock band Queen and lead singer Freddie Mercury, leading up to their famous performance at Live Aid (1985).",
                 "Bryan Singer", "Rami Malek\nLucy Boynton\nGwilym Lee",
                 "8/10", "7.9/10",  imageView2, "Biography\nDrama\nMusic", "https://www.imdb.com/title/tt1727824/?ref_=nv_sr_srsg_0",
                 "http://dl8.disdn.com/Movie/Foreign/1397/11/Bohemian.Rhapsody.2018.720p.MkvCage.mkv?20190304195535",
-                "http://dl8.disdn.com/Movie/Foreign/1397/11/Bohemian.Rhapsody.2018.1080p.6CH.MkvCage.mkv?20190304195508"));
+                "http://dl8.disdn.com/Movie/Foreign/1397/11/Bohemian.Rhapsody.2018.1080p.6CH.MkvCage.mkv?20190304195508",
+                "https://m.media-amazon.com/images/M/MV5BMTA2NDc3Njg5NDVeQTJeQWpwZ15BbWU4MDc1NDcxNTUz._V1_SY1000_CR0,0,674,1000_AL_.jpg"));
 
 
         RVAdapterMovies2 adapter = new RVAdapterMovies2(movies, getContext());

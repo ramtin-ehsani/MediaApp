@@ -82,14 +82,14 @@ public class RVAdapterMovies2 extends
                 intent.putExtra("RTrating", movie.RTrating);
                 intent.putExtra("genre", movie.genre);
                 intent.putExtra("link", movie.imdbLink);
-                intent.putExtra("link720p",movie.link720);
+                intent.putExtra("imgLink",movie.imageLink);
+                intent.putExtra("link720p",movie.link720p);
                 intent.putExtra("link1080p",movie.link1080p);
 
-                Bitmap bitmap = BitmapFactory.decodeResource
-                        (movie.poster.getResources(), (int) movie.poster.getTag()); // your bitmap
-                ByteArrayOutputStream bs = new ByteArrayOutputStream();
-                bitmap.compress(Bitmap.CompressFormat.JPEG, 50, bs);
-                intent.putExtra("image", bs.toByteArray());
+//                Bitmap bitmap = movie.bitmap;
+//                ByteArrayOutputStream bs = new ByteArrayOutputStream();
+//                bitmap.compress(Bitmap.CompressFormat.JPEG, 50, bs);
+//                intent.putExtra("image", bs.toByteArray());
 
                 context.startActivity(intent);
             }

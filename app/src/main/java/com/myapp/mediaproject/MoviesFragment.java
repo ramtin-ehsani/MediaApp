@@ -3,15 +3,24 @@ package com.myapp.mediaproject;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 
+import com.google.firebase.database.ChildEventListener;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 import com.myapp.mediaproject.adapters.RVAdapterMovies;
 
 import java.util.ArrayList;
@@ -23,6 +32,13 @@ import java.util.List;
  */
 public class MoviesFragment extends Fragment {
     RecyclerView recyclerView;
+    RVAdapterMovies adapter;
+    ProgressBar progressBar;
+
+    private List<MoviesClass> movies = new ArrayList<>();
+    private FirebaseDatabase firebaseDatabase;
+    private DatabaseReference databaseReference;
+    private ChildEventListener childEventListener;
 
     public MoviesFragment() {
         // Required empty public constructor
@@ -34,6 +50,8 @@ public class MoviesFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_movies, container, false);
         recyclerView = view.findViewById(R.id.rvMovies);
+        recyclerView.setVisibility(View.INVISIBLE);
+        progressBar = view.findViewById(R.id.progressBar);
         initMovies();
 
         return view;
@@ -41,38 +59,59 @@ public class MoviesFragment extends Fragment {
 
     void initMovies()
     {
-        List<MoviesClass> movies = new ArrayList<>();
-        ImageView imageView = new ImageView(getContext());
-        imageView.setImageResource(R.drawable.inception);
-        imageView.setTag(R.drawable.inception);
-        movies.add(new MoviesClass("Inception", "(2010)", "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.",
-                "Christopher Nolan", "Leonardo DiCaprio\nJoseph Gordon-Levitt\nEllen Page",
-                "8.8/10", "8.7/10",  imageView, "Action\nAdventure\nSci-fi", "https://www.imdb.com/title/tt1375666/",
-                "http://dl2.ftk.pw/film/Inception.2010.720p.BluRay.scOrp.Film2Movie_BiZ.mkv",
-                "http://dl2.ftk.pw/film/Inception.2010.1080p.BluRay.scOrp.Film2Movie_BiZ.mkv"));
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference = firebaseDatabase.getReference().child("movies");
+        attachData();
 
-        ImageView imageView2 = new ImageView(getContext());
-        imageView2.setImageResource(R.drawable.bohemianrhapsody);
-        imageView2.setTag(R.drawable.bohemianrhapsody);
-        movies.add(new MoviesClass("Bohemian Rhapsody", "(2018)", "The story of the legendary British rock band Queen and lead singer Freddie Mercury, leading up to their famous performance at Live Aid (1985).",
-                "Bryan Singer", "Rami Malek\nLucy Boynton\nGwilym Lee",
-                "8/10", "7.9/10",  imageView2, "Biography\nDrama\nMusic", "https://www.imdb.com/title/tt1727824/?ref_=nv_sr_srsg_0",
-                "http://dl8.disdn.com/Movie/Foreign/1397/11/Bohemian.Rhapsody.2018.720p.MkvCage.mkv?20190304195535",
-                "http://dl8.disdn.com/Movie/Foreign/1397/11/Bohemian.Rhapsody.2018.1080p.6CH.MkvCage.mkv?20190304195508"));
 
-        ImageView imageView3 = new ImageView(getContext());
-        imageView3.setImageResource(R.drawable.el_camino);
-        imageView3.setTag(R.drawable.el_camino);
-        movies.add(new MoviesClass("El Camino: A Breaking Bad Movie", "(2019)", "Aaron Paul, best known for his role as drug dealer Jesse Pinkman in \"Breaking Bad,\" reprises his role in the follow-up film El Camino: A Breaking Bad Movie. Who else has he played?",
-                "Vince Gilligan", "Aaron Paul\nJonathan Banks\nMatt Jones",
-                "7.4/10", "9.1/10",  imageView3, "Action\nCrime\nDrama", "https://www.imdb.com/title/tt9243946/?ref_=nv_sr_srsg_0",
-                "http://dl2.uploadmax.ir/Film/New-Server/2019/El.Camino.A.Breaking.Bad.Movie.2019.720p.WEB-DL.PAHE.Film2Media.mkv",
-                "http://dl2.uploadmax.ir/Film/New-Server/2019/El.Camino.A.Breaking.Bad.Movie.2019.1080p.WEB-DL.x264.6CH-Pahe.Film2Media.mkv"));
-
-        RVAdapterMovies adapter = new RVAdapterMovies(movies, getContext());
+        adapter = new RVAdapterMovies(movies, getContext());
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
+    }
+
+    private void attachData(){
+        if (childEventListener == null){
+            childEventListener = new ChildEventListener() {
+                @Override
+                public void onChildAdded(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+                    MovieFirebase movie = dataSnapshot.getValue(MovieFirebase.class);
+                    movies.add(new MoviesClass(movie.name,movie.year,movie.description,movie.director,
+                            movie.stars,movie.imdbRating,movie.RTrating,new ImageView(getContext()),movie.genre,
+                            movie.imdbLink,movie.link720p,movie.link1080p,movie.imageLink));
+                    adapter.notifyDataSetChanged();
+                }
+
+                @Override
+                public void onChildChanged(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+                }
+
+                @Override
+                public void onChildRemoved(@NonNull DataSnapshot dataSnapshot) {
+
+                }
+
+                @Override
+                public void onChildMoved(@NonNull DataSnapshot dataSnapshot, @Nullable String s) {
+
+                }
+
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            };
+            databaseReference.addChildEventListener(childEventListener);
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    adapter.notifyDataSetChanged();
+                    recyclerView.setVisibility(View.VISIBLE);
+                    progressBar.setVisibility(View.INVISIBLE);
+                }
+            }, 6000);
+        }
     }
 
 }
