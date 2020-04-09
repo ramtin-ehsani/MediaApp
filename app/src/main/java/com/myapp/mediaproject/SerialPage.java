@@ -75,7 +75,7 @@ public class SerialPage extends AppCompatActivity {
         descriptionTxtView.setText(series.description);
 
 
-        findViewById(R.id.serialPoster).setLayoutParams(new RelativeLayout.LayoutParams(width, height - 20));
+        findViewById(R.id.serialPoster).setLayoutParams(new RelativeLayout.LayoutParams(width, height - 500));
 
 
         RecyclerView rvContacts = findViewById(R.id.rvSeasons);

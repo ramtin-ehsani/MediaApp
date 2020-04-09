@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 
@@ -32,7 +33,7 @@ import java.util.Arrays;
 public class MainActivity extends AppCompatActivity {
     ViewPager viewPager;
     TabLayout tabLayout;
-    EditText search;
+    SearchView searchView;
     DrawerLayout drawerLayout;
     ImageView nav_img;
     NavigationView navigationView;
@@ -84,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
     void init(){
         viewPager = findViewById(R.id.viewPage);
         tabLayout = findViewById(R.id.tabLay);
-        search = findViewById(R.id.edt_search);
+        searchView = findViewById(R.id.edt_search);
         drawerLayout = findViewById(R.id.drawer_layout);
         navigationView = findViewById(R.id.nav_view);
         nav_img = findViewById(R.id.img_menu);
@@ -117,6 +118,20 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 drawerLayout.openDrawer(GravityCompat.START);
+            }
+        });
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                Intent intent = new Intent(getBaseContext(),SearchActivity.class);
+                intent.putExtra("search",query);
+                startActivity(intent);
+                return true;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                return false;
             }
         });
     }

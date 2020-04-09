@@ -71,7 +71,7 @@ public class HomeFragment extends Fragment {
                 "8/10", "7.9/10",  imageView2, "Biography\nDrama\nMusic", "https://www.imdb.com/title/tt1727824/?ref_=nv_sr_srsg_0",
                 "http://dl8.disdn.com/Movie/Foreign/1397/11/Bohemian.Rhapsody.2018.720p.MkvCage.mkv?20190304195535",
                 "http://dl8.disdn.com/Movie/Foreign/1397/11/Bohemian.Rhapsody.2018.1080p.6CH.MkvCage.mkv?20190304195508",
-                "https://m.media-amazon.com/images/M/MV5BMTA2NDc3Njg5NDVeQTJeQWpwZ15BbWU4MDc1NDcxNTUz._V1_SY1000_CR0,0,674,1000_AL_.jpg"));
+                "https://m.media-amazon.com/images/M/MV5BMTA2NDc3Njg5NDVeQTJeQWpwZ15BbWU4MDc1NDcxNTUz._V1_UX182_CR0,0,182,268_AL_.jpg"));
 
         ImageView imageView3 = new ImageView(getContext());
         imageView3.setImageResource(R.drawable.el_camino);
@@ -81,7 +81,7 @@ public class HomeFragment extends Fragment {
                 "7.4/10", "9.1/10",  imageView3, "Action\nCrime\nDrama", "https://www.imdb.com/title/tt9243946/?ref_=nv_sr_srsg_0",
                 "http://dl2.uploadmax.ir/Film/New-Server/2019/El.Camino.A.Breaking.Bad.Movie.2019.720p.WEB-DL.PAHE.Film2Media.mkv",
                 "http://dl2.uploadmax.ir/Film/New-Server/2019/El.Camino.A.Breaking.Bad.Movie.2019.1080p.WEB-DL.x264.6CH-Pahe.Film2Media.mkv",
-                "https://m.media-amazon.com/images/M/MV5BNjk4MzVlM2UtZGM0ZC00M2M1LThkMWEtZjUyN2U2ZTc0NmM5XkEyXkFqcGdeQXVyOTAzMTc2MjA@._V1_SY1000_SX800_AL_.jpg"));
+                "https://m.media-amazon.com/images/M/MV5BNjk4MzVlM2UtZGM0ZC00M2M1LThkMWEtZjUyN2U2ZTc0NmM5XkEyXkFqcGdeQXVyOTAzMTc2MjA@._V1_UY268_CR16,0,182,268_AL_.jpg"));
 
         movies.add(new MoviesClass("Inception", "(2010)", "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.",
                 "Christopher Nolan", "Leonardo DiCaprio\nJoseph Gordon-Levitt\nEllen Page",
@@ -95,7 +95,7 @@ public class HomeFragment extends Fragment {
                 "8/10", "7.9/10",  imageView2, "Biography\nDrama\nMusic", "https://www.imdb.com/title/tt1727824/?ref_=nv_sr_srsg_0",
                 "http://dl8.disdn.com/Movie/Foreign/1397/11/Bohemian.Rhapsody.2018.720p.MkvCage.mkv?20190304195535",
                 "http://dl8.disdn.com/Movie/Foreign/1397/11/Bohemian.Rhapsody.2018.1080p.6CH.MkvCage.mkv?20190304195508",
-                "https://m.media-amazon.com/images/M/MV5BMTA2NDc3Njg5NDVeQTJeQWpwZ15BbWU4MDc1NDcxNTUz._V1_SY1000_CR0,0,674,1000_AL_.jpg"));
+                "https://m.media-amazon.com/images/M/MV5BMTA2NDc3Njg5NDVeQTJeQWpwZ15BbWU4MDc1NDcxNTUz._V1_UX182_CR0,0,182,268_AL_.jpg"));
 
 
         RVAdapterMovies2 adapter = new RVAdapterMovies2(movies, getContext());

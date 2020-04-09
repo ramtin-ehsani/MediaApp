@@ -40,6 +40,8 @@ public class MoviesFragment extends Fragment {
     private DatabaseReference databaseReference;
     private ChildEventListener childEventListener;
 
+    static int resume = 0;
+
     public MoviesFragment() {
         // Required empty public constructor
     }
@@ -61,6 +63,7 @@ public class MoviesFragment extends Fragment {
     {
         firebaseDatabase = FirebaseDatabase.getInstance();
         databaseReference = firebaseDatabase.getReference().child("movies");
+        progressBar.setVisibility(View.VISIBLE);
         attachData();
 
 
@@ -103,14 +106,18 @@ public class MoviesFragment extends Fragment {
                 }
             };
             databaseReference.addChildEventListener(childEventListener);
-            new Handler().postDelayed(new Runnable() {
-                @Override
-                public void run() {
-                    adapter.notifyDataSetChanged();
-                    recyclerView.setVisibility(View.VISIBLE);
-                    progressBar.setVisibility(View.INVISIBLE);
-                }
-            }, 6000);
+            if (resume == 0){
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        adapter.notifyDataSetChanged();
+                        recyclerView.setVisibility(View.VISIBLE);
+                        progressBar.setVisibility(View.INVISIBLE);
+                    }
+                }, 6000);
+                resume++;
+            }
+            else recyclerView.setVisibility(View.VISIBLE);
         }
     }
 

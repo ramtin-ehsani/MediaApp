@@ -53,15 +53,16 @@
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:src="@drawable/ic_menu_black_24dp"/>
-                        <EditText
+                        <SearchView
                             android:id="@+id/edt_search"
-                            android:layout_weight="2.5"
+                            android:layout_weight="2.7"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
-                            android:background="@drawable/edittxt_border"
                             android:layout_margin="4dp"
-                            android:hint="Search"
+                            android:queryHint="Search..."
                             android:maxLines="1"
+                            android:queryBackground="@android:color/transparent"
+                            android:layoutDirection="rtl"
                             />
 
                     </LinearLayout>
