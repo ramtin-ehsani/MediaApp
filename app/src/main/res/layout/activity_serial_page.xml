@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/black"
+    >
+
+    <RelativeLayout
+        android:id="@+id/topMenuSeries"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="5dp"
+        >
+
+        <Button
+            android:id="@+id/backBTNSeries"
+            android:layout_width="50dp"
+            android:layout_height="40dp"
+            android:background="@drawable/back"
+            />
+
+        <ImageView
+            android:id="@+id/imdbSerialLink"
+            android:layout_width="70dp"
+            android:layout_height="50dp"
+            android:src="@drawable/imdb_icon"
+            android:layout_marginRight="5dp"
+            android:scaleType="fitCenter"
+            android:layout_alignParentRight="true"
+            android:layout_alignBottom="@+id/backBTNSeries"
+            android:layout_alignTop="@id/backBTNSeries"
+            />
+
+    </RelativeLayout>
+
+   <ScrollView
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:layout_below="@+id/topMenuSeries"
+       >
+
+       <LinearLayout
+           android:layout_width="match_parent"
+           android:layout_height="match_parent"
+           android:orientation="vertical">
+
+
+           <RelativeLayout
+               android:id="@+id/backGroundLayout"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               >
+
+               <ImageView
+                   android:id="@+id/serialPoster"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:scaleType="centerCrop"
+                   />
+
+
+               <View
+                   android:id="@+id/fader"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:layout_alignTop="@+id/serialPoster"
+                   android:layout_alignBottom="@+id/serialPoster"
+                   android:background="@drawable/fader" />
+
+
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:orientation="vertical"
+                   android:layout_alignParentLeft="true"
+                   android:layout_alignParentRight="true"
+                   android:gravity="center"
+                   android:layout_alignParentBottom="true"
+                   >
+
+
+
+                   <TextView
+                       android:id="@+id/seriesName"
+                       android:textSize="40sp"
+                       android:textColor="@color/white"
+                       android:gravity="center"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       />
+
+                   <TextView
+                       android:id="@+id/seriesYear"
+                       android:textColor="@color/white"
+                       android:textSize="30sp"
+                       android:gravity="center"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       />
+
+               </LinearLayout>
+
+           </RelativeLayout>
+
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:orientation="vertical"
+               android:padding="10dp"
+               >
+
+               <RelativeLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:orientation="horizontal"
+                   android:background="@drawable/border_background"
+                   android:padding="10dp"
+                   >
+
+                   <LinearLayout
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:orientation="vertical"
+                       >
+
+                       <TextView
+                           android:text="Director:"
+                           android:textSize="20sp"
+                           android:textColor="@color/title"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           />
+
+                       <TextView
+                           android:id="@+id/serialDirector"
+                           android:textSize="20sp"
+                           android:textColor="@color/white"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:layout_marginLeft="5sp"
+                           />
+
+                       <TextView
+                           android:text="Stars:"
+                           android:textSize="20sp"
+                           android:textColor="@color/title"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:layout_marginTop="5dp"
+                           />
+
+                       <TextView
+                           android:id="@+id/serialStars"
+                           android:textSize="20sp"
+                           android:textColor="@color/white"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:layout_marginLeft="5sp"
+                           />
+
+                   </LinearLayout>
+
+                   <LinearLayout
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:orientation="vertical"
+                       android:padding="10dp"
+                       android:layout_alignParentRight="true"
+                       >
+
+                       <LinearLayout
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:orientation="horizontal"
+                           android:gravity="center"
+                           >
+
+                           <ImageView
+                               android:layout_width="50dp"
+                               android:layout_height="30dp"
+                               android:src="@drawable/imdb_icon"
+                               android:layout_marginRight="5dp"
+                               android:scaleType="fitCenter"
+                               />
+
+                           <TextView
+                               android:id="@+id/serialIMDBPoint"
+                               android:textColor="@color/white"
+                               android:textSize="15sp"
+                               android:layout_width="wrap_content"
+                               android:layout_height="wrap_content"
+                               />
+
+
+                       </LinearLayout>
+
+                       <LinearLayout
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           android:orientation="horizontal"
+                           android:gravity="center"
+                           >
+
+                           <ImageView
+                               android:layout_width="50dp"
+                               android:layout_height="20dp"
+                               android:src="@drawable/rotten_tomatoes_icon"
+                               android:scaleType="fitCenter"
+                               android:layout_marginRight="5dp"
+                               />
+
+                           <TextView
+                               android:id="@+id/serialRTPoints"
+                               android:textColor="@color/white"
+                               android:textSize="15sp"
+                               android:layout_width="wrap_content"
+                               android:layout_height="wrap_content"
+                               />
+
+                       </LinearLayout>
+
+                   </LinearLayout>
+
+                   <TextView
+                       android:id="@+id/serialGenres"
+                       android:textSize="20sp"
+                       android:textColor="@color/white"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_alignParentRight="true"
+                       android:layout_alignParentBottom="true"
+                       android:padding="10dp"
+                       />
+
+               </RelativeLayout>
+
+               <LinearLayout
+                   android:id="@+id/descriptionLayout"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:orientation="vertical"
+                   android:background="@drawable/border_background"
+                   android:layout_marginTop="20dp"
+                   >
+
+                   <TextView
+                       android:text="Description"
+                       android:textSize="20sp"
+                       android:textColor="@color/title"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:padding="10dp"
+                       android:paddingLeft="5dp"
+                       />
+
+                   <View
+                       android:layout_width="match_parent"
+                       android:layout_height="3dp"
+                       android:background="@color/border"
+                       />
+
+                   <TextView
+                       android:id="@+id/serialDescription"
+                       android:textSize="18sp"
+                       android:textColor="@color/white"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:layout_marginBottom="5dp"
+                       android:padding="10dp"
+                       />
+
+
+               </LinearLayout>
+
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:orientation="vertical"
+                   android:background="@drawable/border_background"
+                   android:layout_marginTop="20dp"
+                   >
+
+                   <TextView
+                       android:text="Seasons"
+                       android:textSize="20sp"
+                       android:textColor="@color/title"
+                       android:layout_width="wrap_content"
+                       android:layout_height="wrap_content"
+                       android:padding="10dp"
+                       android:paddingLeft="5dp"
+                       />
+
+                   <View
+                       android:layout_width="match_parent"
+                       android:layout_height="3dp"
+                       android:background="@color/border"
+                       />
+
+                   <LinearLayout
+                       android:id="@+id/seasonsLayout"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       >
+
+                       <androidx.recyclerview.widget.RecyclerView
+                           android:id="@+id/rvSeasons"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           app:layout_constraintBottom_toBottomOf="parent"
+                           app:layout_constraintEnd_toEndOf="parent"
+                           app:layout_constraintStart_toStartOf="parent"
+                           app:layout_constraintTop_toTopOf="parent" />
+
+                   </LinearLayout>
+
+               </LinearLayout>
+
+           </LinearLayout>
+
+       </LinearLayout>
+
+   </ScrollView>
+
+</RelativeLayout>

@@ -1,0 +1,26 @@
+<LinearLayout android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ToggleButton
+        android:id="@+id/seasonsBTN"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_margin="10dp"
+        android:background="@drawable/seen_season"
+        android:textOff=" "
+        android:textOn=" " />
+
+    <TextView
+        android:id="@+id/seasonsTXT"
+        android:text="season1"
+        android:textSize="20sp"
+        android:textColor="@color/white"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        />
+
+</LinearLayout>
