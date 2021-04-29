@@ -9,6 +9,6 @@ It scrapes data from IMDB and stores them in the database and displays them in t
 
 ## Visuals
 <p float="left">
-  <img src="https://www.dropbox.com/s/3rvhpnzq1lz3r01/1.jpg?raw=1" width="100" />
-  <img src="https://www.dropbox.com/s/vqq5941b47isfq1/2.jpg?raw=1" width="100" />
+  <img src="https://www.dropbox.com/s/vydcaiyaqzk7gpq/media1.jpg?raw=1" width="100" />
+  <img src="https://www.dropbox.com/s/jn6zrlvsde3fucm/media2.jpg?raw=1" width="100" />
 </p>
